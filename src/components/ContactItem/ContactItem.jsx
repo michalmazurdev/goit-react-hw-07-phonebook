@@ -1,7 +1,7 @@
 import css from './ContactItem.module.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/actions';
+import { removeContact } from 'redux/contactsSlice';
 
 export const ContactItem = () => {
   const contacts = useSelector(state => state.contacts);
