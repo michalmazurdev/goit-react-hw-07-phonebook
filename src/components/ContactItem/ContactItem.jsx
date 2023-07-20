@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removeContact } from 'redux/contactsSlice';
 
 export const ContactItem = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const filterPhrase = useSelector(state => state.filter.filter);
 
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const ContactItem = () => {
   return filteredContacts.map(contact => (
     <li className={css.listItem} key={contact.id}>
       <span>
-        {contact.name}: {contact.number}
+        {contact.name}: {contact.phone}
       </span>
       <button className={css.button} onClick={() => handleDelete(contact.id)}>
         Delete
