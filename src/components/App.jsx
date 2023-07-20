@@ -1,18 +1,21 @@
-import {
-  useDispatch,
-  // useSelector
-} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactItem } from './ContactItem/ContactItem';
 import { ContactList } from './ContactList/ContactList';
+import { ProgressBar } from 'react-loader-spinner';
+
 import css from './App.module.css';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // console.log(useSelector(state => state));
+  const state = useSelector(state => state);
+  console.log(state);
+  const isLoading = useSelector(state => state.contacts.isLoading);
+  const error = useSelector(state => state.contacts.error);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -29,6 +32,8 @@ export const App = () => {
       <ContactForm />
       <h2 className={css.secondaryHeading}>Contacts</h2>
       <Filter />
+      {isLoading && !error && <ProgressBar />}
+      {error && <p>We are sorry, there was an error linked to your request</p>}
       <ContactList>
         <ContactItem />
       </ContactList>

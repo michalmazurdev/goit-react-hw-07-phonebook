@@ -39,33 +39,3 @@ export const removeContact = createAsyncThunk(
     }
   }
 );
-
-// const fetchContacts = async () => {
-//   try {
-//     const response = await axios.get('/contacts');
-//     // console.log(response.data);
-//     console.log(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// fetchContacts();
-// const addContact = async contact => {
-//   try {
-//     // console.log(contact);
-//     const postResponse = await axios.post('/contacts', contact);
-//     console.log(postResponse);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-// addContact({ name: 'michal mazur', phone: '34567' });
-// export const deleteContact = async id => {
-//   try {
-//     const deleteResponse = await axios.delete(`/contacts/${id}`);
-//     console.log(deleteResponse.data);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
-// deleteContact(13);
