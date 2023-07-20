@@ -12,7 +12,7 @@ import css from './App.module.css';
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  // console.log(useSelector(state => state));
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);

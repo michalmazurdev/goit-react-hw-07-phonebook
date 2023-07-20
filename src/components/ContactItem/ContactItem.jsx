@@ -10,9 +10,13 @@ export const ContactItem = () => {
   const dispatch = useDispatch();
 
   const filterContactsByName = contacts => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filterPhrase.toLowerCase())
-    );
+    if (filterPhrase === '') {
+      return contacts;
+    } else {
+      return contacts.filter(contact =>
+        contact.name.toLowerCase().includes(filterPhrase.toLowerCase())
+      );
+    }
   };
   let filteredContacts = filterContactsByName(contacts);
 

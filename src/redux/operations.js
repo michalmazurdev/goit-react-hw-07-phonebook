@@ -9,13 +9,25 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
-      console.log(response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+export const addContact = createAsyncThunk(
+  'contacts',
+  async (contact, thunkAPI) => {
+    try {
+      const response = await axios.post('/contacts', contact);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 // const fetchContacts = async () => {
 //   try {
 //     const response = await axios.get('/contacts');
@@ -30,7 +42,7 @@ export const fetchContacts = createAsyncThunk(
 //   try {
 //     // console.log(contact);
 //     const postResponse = await axios.post('/contacts', contact);
-//     console.log(postResponse.data);
+//     console.log(postResponse);
 //   } catch (error) {
 //     console.log(error.message);
 //   }
