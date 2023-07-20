@@ -6,6 +6,7 @@ import { Filter } from './Filter/Filter';
 import { ContactItem } from './ContactItem/ContactItem';
 import { ContactList } from './ContactList/ContactList';
 import { ProgressBar } from 'react-loader-spinner';
+import { getError, getIsLoading } from 'redux/selectors';
 
 import css from './App.module.css';
 
@@ -13,8 +14,8 @@ export const App = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
   console.log(state);
-  const isLoading = useSelector(state => state.contacts.isLoading);
-  const error = useSelector(state => state.contacts.error);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
   useEffect(() => {
     dispatch(fetchContacts());
