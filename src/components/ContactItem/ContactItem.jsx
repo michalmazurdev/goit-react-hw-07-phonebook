@@ -1,7 +1,7 @@
 import css from './ContactItem.module.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { removeContact } from 'redux/contactsSlice';
+import { removeContact } from 'redux/operations';
 
 export const ContactItem = () => {
   const contacts = useSelector(state => state.contacts.items);
@@ -21,6 +21,7 @@ export const ContactItem = () => {
   let filteredContacts = filterContactsByName(contacts);
 
   const handleDelete = contactId => {
+    console.log(contactId);
     dispatch(removeContact(contactId));
   };
 
